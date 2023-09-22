@@ -1,0 +1,81 @@
+{
+  "name": "find-and-replace---improved",
+  "displayName": "Find and Replace - Improved",
+  "description": "Find and Replace but uses selection by default or entire document if nothing is selected.",
+  "version": "0.0.1",
+  "publisher": "Dylbill",
+  "license": "MIT",
+  "repository": {
+		"type": "git",
+		"url": ""
+	},
+	"keywords": [
+		"Find",
+		"Replace",
+    "Selected",
+    "Selection"
+	],
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+			{
+				"title": "Find And Replace - Improved Config",
+				"properties": {
+          "FindAndReplaceImproved.CaseSensitive": {
+						"type": "boolean",
+						"default": "false",
+						"description": "If checked - search is case sensitive when using the Find And Replace Improved command.",
+						"scope": "window"
+					},
+          "FindAndReplaceImproved.WholeWord": {
+						"type": "boolean",
+						"default": "false",
+						"description": "If checked - searches only whole words when using the Find And Replace Improved command.",
+						"scope": "window"
+					}
+				}
+			}
+		],
+    "commands": [
+      {
+        "command": "find-and-replace---improved.findAndReplace",
+        "title": "Find And Replace Improved"
+      },
+      {
+        "command": "find-and-replace---improved.toggleCaseSensitive",
+        "title": "Find And Replace Improved - Toggle Case Sensitive"
+      },
+      {
+        "command": "find-and-replace---improved.toggleWholeWord",
+        "title": "Find And Replace Improved - Toggle Whole Word"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
