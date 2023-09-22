@@ -94,13 +94,13 @@ export function findAndReplace() {
 		prompt: "Enter Search Text",
 		value: searchText,
 		}).then(sText => {
-			if (sText){
+			if (sText !== undefined && sText !== ""){
 				searchText = sText; 
 				vscode.window.showInputBox({
 				prompt: "Enter Replace Text",
 				value: replaceText,
 				}).then(rText => {
-					if (rText){
+					if (rText !== undefined){
 						replaceText = rText; 
 						let caseSensitive = vscode.workspace.getConfiguration('FindAndReplaceImproved').CaseSensitive;
 						let wholeWordsOnly = vscode.workspace.getConfiguration('FindAndReplaceImproved').WholeWord;
@@ -165,9 +165,17 @@ export function replaceInSelection(searchString:string, replaceString:string, ed
 		selectedText = document.getText();
 	}
 	
-	if (selectedText === "" || searchString === "" || replaceString === ""){
+	if (selectedText === undefined){
+		selectedText = "";
+	} 
+
+	if (searchString === undefined || searchString === "" || selectedText === ""){
 		return selectedText;
 	} 
+
+	if (replaceString === undefined){
+		replaceString = "";
+	}
 
 	let searchText = selectedText; 
 

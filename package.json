@@ -2,12 +2,12 @@
   "name": "find-and-replace---improved",
   "displayName": "Find and Replace - Improved",
   "description": "Find and Replace but uses selection by default or entire document if nothing is selected.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Dylbill",
   "license": "MIT",
   "repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/Dylbill-Iroh/vscode-extension---Find-and-Replace-Improved"
 	},
 	"keywords": [
 		"Find",
