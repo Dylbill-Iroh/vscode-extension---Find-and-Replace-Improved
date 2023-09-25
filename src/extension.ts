@@ -3,6 +3,7 @@ import * as vscode from 'vscode';
 //var outputChannel: vscode.//outputChannel;
 var searchText = "";
 var replaceText = "";
+var numReplaced:number = 0;
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -101,6 +102,7 @@ export function findAndReplace() {
 				value: replaceText,
 				}).then(rText => {
 					if (rText !== undefined){
+						numReplaced = 0;
 						replaceText = rText; 
 						let caseSensitive = vscode.workspace.getConfiguration('FindAndReplaceImproved').CaseSensitive;
 						let wholeWordsOnly = vscode.workspace.getConfiguration('FindAndReplaceImproved').WholeWord;
@@ -149,6 +151,7 @@ export function findAndReplace() {
 								//outputChannel.show();
 							}
 						}
+						showNotification("Replaced " + numReplaced + " instances");
 					} 
 				});
 			} 
@@ -201,12 +204,14 @@ export function replaceInSelection(searchString:string, replaceString:string, ed
 					continue;
 				}
 			}
+			numReplaced += 1;
 			searchText = searchText.substring(0, index) + replaceString + searchText.substring(endIndex);
 			selectedText = selectedText.substring(0, index) + replaceString + selectedText.substring(endIndex);
 			index = searchText.indexOf(searchString, endIndex);
 		}
 	} else {
 		while (index !== -1){
+			numReplaced += 1;
 			let endIndex = index + searchString.length;
 			searchText = searchText.substring(0, index) + replaceString + searchText.substring(endIndex);
 			selectedText = selectedText.substring(0, index) + replaceString + selectedText.substring(endIndex);

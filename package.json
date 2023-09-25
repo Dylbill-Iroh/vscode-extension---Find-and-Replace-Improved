@@ -2,7 +2,7 @@
   "name": "find-and-replace---improved",
   "displayName": "Find and Replace - Improved",
   "description": "Find and Replace but uses selection by default or entire document if nothing is selected.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "Dylbill",
   "license": "MIT",
   "repository": {

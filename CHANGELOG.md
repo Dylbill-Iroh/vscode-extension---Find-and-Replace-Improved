@@ -7,3 +7,7 @@ All notable changes to the "find-and-replace---improved" extension will be docum
 ## [0.0.2] - 2023-09-22
 ### Fixed 
 - Can now replace text with an empty string "" where as before you couldn't.
+
+## [0.0.3] - 2023-09-25
+### Added 
+- Now displays how many instances were replaced.
